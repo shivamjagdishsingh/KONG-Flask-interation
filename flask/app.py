@@ -19,7 +19,6 @@ def index():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     # Check if any files were uploaded
-    # breakpoint()
     if len(request.files) == 0:
         return "No files uploaded"
 
@@ -36,10 +35,6 @@ def upload_file():
 
 @app.route('/download/<filename>', methods=['GET'])
 def download_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-
-@app.route('/download', methods=['GET'])
-def download_file1():
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route('/test', methods=['GET'])
